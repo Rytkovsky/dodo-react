@@ -1,3 +1,11 @@
-import s from './Header.module.scss'
+import s from "./Header.module.scss";
 
-export const Header = () => {return <></>}
+export const Header = () => {
+  return (
+    <>
+      <h1>hello</h1>
+    </>
+  );
+};
+
+
