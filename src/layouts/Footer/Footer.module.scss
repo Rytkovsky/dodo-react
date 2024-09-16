@@ -1,1 +1,17 @@
-.footer {}
+.footer {
+  padding: 50px 110px 40px;
+  background: #464c55;
+  &__main_info {
+    display: flex;
+    justify-content: space-between;
+    max-width: 706px;
+  }
+  &__list {
+    max-width: 140px;
+  }
+}
+
+.test {
+  width: 135px;
+  height: 40px;
+}
