@@ -27,6 +27,7 @@ function App() {
       </div>
       <p className="read-the-docs">
         Остановите Vite надо выйти
+        проверка Артем
       </p>
     </>
   )
