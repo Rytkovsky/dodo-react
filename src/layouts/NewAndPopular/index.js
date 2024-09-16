@@ -1,0 +1,1 @@
+export {NewAndPopular} from './NewAndPopular'
