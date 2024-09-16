@@ -1,1 +1,0 @@
-export {Deserts} from './Deserts'
