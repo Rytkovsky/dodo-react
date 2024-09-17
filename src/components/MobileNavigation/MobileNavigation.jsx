@@ -1,6 +1,6 @@
-import s from "./Navigation.module.scss";
+import s from "./MobileNavigation.module.scss";
 
-export const Navigation = () => {
+export const MobileNavigation = () => {
   return (
     <>
       <nav className={s.navigation}>

@@ -5,6 +5,7 @@ import { Logo } from "../../components/Logo/Logo";
 import { LogoTitle } from "../../components/LogoTitle/LogoTitle";
 import { PhoneNumber } from "../../ui/PhoneNumber/PhoneNumber";
 import { Navigation } from "../../components/Navigation/Navigation";
+// import { MobileNavigation } from "../../components/MobileNavigation/MobileNavigation";
 
 export const Header = () => {
   return (
@@ -23,28 +24,8 @@ export const Header = () => {
           </div>
         </div>
         <div className={s.header__navigation}>
-          <Navigation>
-            <ul className={s.header__lists}>
-              <li className={s.header__item}>
-                <a href="#pizza">Пицца</a>
-              </li>
-              <li className={s.header__item}>
-                <a href="#combo">Комбо</a>
-              </li>
-              <li className={s.header__item}>
-                <a href="#snacks">Закуски</a>
-              </li>
-              <li className={s.header__item}>
-                <a href="#desserts">Десерты</a>
-              </li>
-              <li className={s.header__item}>
-                <a href="#drinks">Напитки</a>
-              </li>
-              <li className={s.header__item}>
-                <a href="#others">Другие товары</a>
-              </li>
-            </ul>
-          </Navigation>
+          <Navigation />
+          {/* <MobileNavigation /> */}
           <Button>Корзина</Button>
         </div>
       </Container>
