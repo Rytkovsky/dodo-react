@@ -36,20 +36,4 @@
     align-items: center;
     margin-top: 31px;
   }
-
-  &__lists {
-    display: flex;
-    gap: 23px;
-  }
-
-  &__item {
-    color: #000;
-    font-size: 14px;
-    font-weight: 400;
-    transition: 0.3s;
-    cursor: pointer;
-    &:hover {
-      color: #f96900;
-    }
-  }
 }
