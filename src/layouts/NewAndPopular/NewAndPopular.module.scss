@@ -1,1 +1,13 @@
-.newandpopular {}
+.popular {
+  padding: 70px 0;
+  &__title {
+    margin-bottom: 20px;
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  &__wrapper {
+    display: flex;
+    gap: 20px;
+  }
+}
