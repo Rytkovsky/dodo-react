@@ -3,6 +3,7 @@ import { Section } from "../Section/Section";
 import s from "./Main.module.scss";
 import { useEffect } from "react";
 import { NewAndPopular } from "../NewAndPopular/NewAndPopular";
+import { Slider } from "../Slider";
 
 export const Main = () => {
   //ГЛАВНЫЕ СЕКЦИИ С ПРОДУКТАМИ
@@ -22,16 +23,18 @@ export const Main = () => {
       .then((res) => setPopularSection(res));
   }, []);
 
-  console.log(popularSection);
-
   return (
     <>
+      <Slider></Slider>
       <NewAndPopular popularSection={popularSection}></NewAndPopular>
-      <Section title="Пицца"></Section>
-      <Section title="Комбо"></Section>
-      <Section title="Закуски"></Section>
-      <Section title="Десерты"></Section>
-      <Section title="Напитки"></Section>
+      <Section mainSections={mainSections}></Section>
+      {/* {mainSections.map((el) => (
+        <Section mainSections={el.category === "pizza"}></Section>
+      ))} */}
+      {/* <Section mainSections={mainSections}></Section>
+      <Section mainSections={mainSections}></Section>
+      <Section mainSections={mainSections}></Section>
+      <Section mainSections={mainSections}></Section> */}
     </>
   );
 };
