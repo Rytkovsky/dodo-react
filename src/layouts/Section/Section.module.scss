@@ -1,6 +1,10 @@
 .cards {
+  padding-top: 70px;
+
   &__title {
     margin-bottom: 40px;
+    font-size: 24px;
+    font-weight: 700;
   }
   &__wrapper {
     display: grid;
