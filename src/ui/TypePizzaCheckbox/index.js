@@ -1,0 +1,1 @@
+export {TypePizzaCheckbox} from './TypePizzaCheckbox'
