@@ -1,1 +1,11 @@
-.section {}
+.cards {
+  &__title {
+    margin-bottom: 40px;
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 60px;
+    column-gap: 20px;
+  }
+}
