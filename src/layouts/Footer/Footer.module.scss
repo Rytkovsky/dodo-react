@@ -1,8 +1,8 @@
 .footer {
   padding: 50px 110px 40px;
-  margin-top: 65 px;
+  margin-top: 65px;
   background: #464c55;
-  
+
   &__top_wrapper {
     display: flex;
     justify-content: space-between;
@@ -86,6 +86,10 @@
       font-size: 16px;
       font-weight: 400;
       line-height: 22px;
+    }
+    &_img {
+      filter: invert(94%) sepia(6%) saturate(99%) hue-rotate(187deg)
+        brightness(87%) contrast(88%);
     }
     &_text {
       display: flex;

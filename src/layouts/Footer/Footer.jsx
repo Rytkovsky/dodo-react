@@ -12,6 +12,7 @@ import { FooterList } from "../../components/FooterList/FooterList";
 import { useEffect } from "react";
 import { useState } from "react";
 import { PhoneNumber } from "../../ui/PhoneNumber/PhoneNumber";
+import { LogoTitle } from "../../components/LogoTitle/LogoTitle";
 
 export const Footer = () => {
   const [moneyData, getMoneyData] = useState({
@@ -78,7 +79,7 @@ export const Footer = () => {
           </div>
           <div className={s.footer__bottom}>
             <div className={s.footer__bottom_logo}>
-              <img src={greyLogo}></img>
+              <LogoTitle className={s.footer__bottom_img} />
               <p>© 2024</p>
             </div>
             <div className={s.footer__bottom_text}>
