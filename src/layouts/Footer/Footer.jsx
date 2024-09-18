@@ -11,6 +11,7 @@ import yt from "../../assets/imgs/links/youtube.svg";
 import { FooterList } from "../../components/FooterList/FooterList";
 import { useEffect } from "react";
 import { useState } from "react";
+import { PhoneNumber } from "../../ui/PhoneNumber/PhoneNumber";
 
 export const Footer = () => {
   const [moneyData, getMoneyData] = useState({
@@ -50,10 +51,7 @@ export const Footer = () => {
               <a href="https://clck.ru/3DLRu4" target="_blank">
                 <img src={appleBtn} className={s.footer__app_btn} />
               </a>
-              <p className={s.footer__tel}>
-                <a href="tel:+78003020060">8-800-302-00-60</a>
-              </p>
-              <p className={s.footer__item}>Звонок бесплатный</p>
+              <PhoneNumber className={s.footer__tel} />
               <p className={s.footer__mail}>
                 <a href="mailto:feedback@dodopizza.com">
                   feedback@dodopizza.com
