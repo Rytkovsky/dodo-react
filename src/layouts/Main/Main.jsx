@@ -4,7 +4,7 @@ import s from "./Main.module.scss";
 import { useEffect } from "react";
 import { NewAndPopular } from "../NewAndPopular/NewAndPopular";
 import { Slider } from "../Slider";
-
+import { ProductCard } from "../../components/ProductCard/ProductCard";
 export const Main = () => {
   //ГЛАВНЫЕ СЕКЦИИ С ПРОДУКТАМИ
   const [mainSections, setMainSection] = useState([]);
@@ -35,6 +35,7 @@ export const Main = () => {
       <Section mainSections={mainSections}></Section>
       <Section mainSections={mainSections}></Section>
       <Section mainSections={mainSections}></Section> */}
+      <ProductCard />
     </>
   );
 };

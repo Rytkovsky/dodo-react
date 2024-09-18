@@ -1,3 +1,7 @@
 import s from './SizeCheckbox.module.scss'
 
-export const SizeCheckbox = () => {return <></>}
+export const SizeCheckbox = () => {return <>
+
+
+
+</>}

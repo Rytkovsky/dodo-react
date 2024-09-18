@@ -1,5 +1,4 @@
 import s from "./Card.module.scss";
-import ChickenBlueCheese from "../../../public/images/chicken-blue-cheese.webp";
 import { Button } from "../../ui/Button/Button";
 
 export const Card = ({ el, img }) => {

@@ -1,10 +1,25 @@
 .product {
+  &__background {
+    height: 100vh;
+    width: 100vw;
+    // display: block;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
   &__card {
     width: 920px;
-    // margin: 0 auto;
+    margin: 0 auto;
     border-radius: 20px;
     background: #fff;
     box-shadow: 0px 6px 55px 0px rgba(0, 0, 0, 0.1);
+    // position: fixed;
+    // left: 50%;
+    // transform: translateX(-50%);
+    margin-top: 100px;
+    // z-index: 100;
   }
 
   &__card_wrapper {
@@ -12,12 +27,27 @@
   }
 
   &__wrapper_img {
-    padding: 114px 75px;
+    padding: 76px 38px;
     margin: 0 auto;
+    position: relative;
+  }
+
+  &__dashed {
+    width: 458px;
+    height: 458px;
+    border: 1px dashed #a7a7a7;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
   }
 
   &__img {
+    position: absolute;
     width: 372px;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 1;
   }
 
   &__text_block {
@@ -48,7 +78,28 @@
 
   &__nav {
     border-radius: 100px;
+    padding: 2px;
     background: #f3f3f7;
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.5s;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__input:checked ~ .product__label {
+    background-color: #fff;
+    border-radius: 100px;
+  }
+
+  &__label {
+    padding: 0 15px;
+    height: 28px;
+    display: flex;
+    align-items: center;
   }
 
   &__sizes {
