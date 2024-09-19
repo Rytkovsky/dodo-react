@@ -5,9 +5,7 @@ import { Container } from "../Container/Container";
 export const Slider = () => {
   return (
     <>
-      <Container>
-        <img className={s.slider} src={slider1}></img>
-      </Container>
+      <img className={s.slider} src={slider1}></img>
     </>
   );
 };
