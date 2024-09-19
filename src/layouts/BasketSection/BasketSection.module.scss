@@ -1,0 +1,40 @@
+.basket {
+  padding: 70px 0;
+  &__title {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  &__subTitle {
+    margin-top: 60px;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  &__popular {
+    overflow: hidden;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &__price {
+    text-align: right;
+    font-size: 21px;
+    font-weight: 600;
+    margin-top: 65px;
+  }
+  &__totalPrice {
+    color: #f96900;
+    font-size: 26px;
+    font-weight: 600;
+  }
+  &__btns {
+    margin-top: 27px;
+    display: flex;
+    justify-content: space-between;
+  }
+}

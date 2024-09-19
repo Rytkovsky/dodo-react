@@ -1,0 +1,84 @@
+.basketHeader {
+  padding: 25px 200px 25px 110px;
+  border-bottom: 1px solid #e5e5e5;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__logo_wrapper {
+    display: flex;
+    gap: 14px;
+  }
+  &__subtitle {
+    color: #343434;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  &__order {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    &_num1 {
+      width: 9px;
+      font-size: 14px;
+      font-weight: 700;
+      position: absolute;
+      top: 7px;
+      left: 24px;
+    }
+    &_num2 {
+      position: absolute;
+      top: 7px;
+      left: 64px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #aeadae;
+    }
+    &_num3 {
+      position: absolute;
+      top: 7px;
+      left: 40px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #aeadae;
+    }
+    &_text {
+      font-size: 14px;
+      font-weight: 600;
+      color: #aeadae;
+    }
+ 
+  }
+  &__ellipse_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__ellipse {
+    width: 32px;
+    height: 32px;
+    display: block;
+  }
+  &__dottedLine1 {
+    height: 1px;
+    position: absolute;
+    left: 50px;
+    top: 15px;
+    width: 114px;
+  }
+  &__dottedLine2 {
+    height: 1px;
+    position: absolute;
+    left: 90px;
+    top: 15px;
+  }
+}
+.basketHeader__orderMain {
+  display: flex;
+  width: 370px;
+  justify-content: space-between;
+}

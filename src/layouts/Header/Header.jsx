@@ -26,7 +26,9 @@ export const Header = () => {
         <div className={s.header__navigation}>
           <Navigation />
           {/* <MobileNavigation /> */}
-          <Button>Корзина</Button>
+          <Button color="orange" size="medium">
+            Корзина
+          </Button>
         </div>
       </Container>
     </header>

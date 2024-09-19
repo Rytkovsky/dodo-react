@@ -1,7 +1,7 @@
 import s from "./Card.module.scss";
 import { Button } from "../../ui/Button/Button";
 
-export const Card = ({ el, img }) => {
+export const Card = ({ el, img, collect }) => {
   return (
     <>
       <article className={s.card}>
@@ -17,7 +17,13 @@ export const Card = ({ el, img }) => {
           <p className={s.card__structure}>{el.description}</p>
           <div className={s.card__order}>
             <p className={s.card__price}>{el.price} ₽</p>
-            <Button>Собрать</Button>
+            {collect ? (
+              <Button color="orange">Собрать</Button>
+            ) : (
+              <Button color="semiOrange" text="orangeText">
+                Выбрать
+              </Button>
+            )}
           </div>
         </div>
       </article>

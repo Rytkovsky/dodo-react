@@ -7,9 +7,50 @@
   border-radius: 1000px;
   background: #f96900;
   transition: 0.3s;
-  cursor: pointer;
-  &:hover {
-    color: #d15700;
+  font-family: "Nunito";
+  &_orange {
+    background: #f96900;
+    &:hover {
+      background: #ed5d08;
+    }
+  }
+  &_semiOrange {
     background: #fff0e6;
+    &:hover {
+      background: #ffd0b2;
+    }
+  }
+  &_gray {
+    background: #f3f3f7;
+    &:hover {
+      font-weight: 800;
+    }
+  }
+  &_small {
+    width: 70px;
+    height: 32px;
+  }
+  &_medium {
+    width: 120px;
+    height: 40px;
+  }
+
+  &_semiLarge {
+    width: 220px;
+    height: 48px;
+  }
+
+  &_large {
+    width: 320px;
+    height: 48px;
+  }
+  &_text {
+    color: var(--Gray-dark, #73798c);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  &_orangeText {
+    color: #d15700;
   }
 }

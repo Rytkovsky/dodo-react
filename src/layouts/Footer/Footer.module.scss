@@ -85,11 +85,12 @@
       color: #fff;
       font-size: 16px;
       font-weight: 400;
-      line-height: 22px;
+      margin-top: 10px;
     }
     &_img {
       filter: invert(94%) sepia(6%) saturate(99%) hue-rotate(187deg)
         brightness(87%) contrast(88%);
+
     }
     &_text {
       display: flex;

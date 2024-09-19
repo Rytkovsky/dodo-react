@@ -1,0 +1,36 @@
+.basketItem {
+  border-top: 1px solid #e1e1e8;
+  border-bottom: 1px solid #e1e1e8;
+  padding: 25px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+  }
+
+  &__img {
+    width: 64px;
+    height: 64px;
+  }
+  &__text {
+    display: block;
+  }
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  &__desc {
+    color: #73798c;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  &__control {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+}

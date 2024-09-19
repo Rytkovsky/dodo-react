@@ -1,0 +1,49 @@
+.basketFooter {
+  background: #464c55;
+  padding: 46px 110px 40px 110px;
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 46px;
+  }
+  &__bottom_logo {
+    display: flex;
+    gap: 28px;
+    opacity: 0.7;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+
+    align-items: center;
+  }
+  &__bottom_img {
+    filter: invert(94%) sepia(6%) saturate(99%) hue-rotate(187deg)
+      brightness(87%) contrast(88%);
+    margin-top: 10px;
+  }
+  &__bottom_text {
+    display: flex;
+    gap: 14px;
+    opacity: 0.7;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    align-items: center;
+  }
+  &__mail {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+  }
+  &__tel {
+   margin-bottom: 47px;
+    color: #fff;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 26px;
+    text-align: right;
+  }
+}
