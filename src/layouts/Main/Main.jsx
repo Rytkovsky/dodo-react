@@ -84,7 +84,7 @@ export const Main = () => {
       <Section array={dessert}>Десерты</Section>
 
       <Section array={drink}>Напитки</Section>
-
+      <ProductCard />
     </>
   );
 };
