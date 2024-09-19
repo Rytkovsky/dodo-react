@@ -1,0 +1,33 @@
+.size {
+  &__nav {
+    border-radius: 100px;
+    margin-top: 20px;
+    padding: 2px;
+    background: #f3f3f7;
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.5s;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__input:checked ~ .size__label {
+    background-color: #fff;
+    border-radius: 100px;
+  }
+
+  &__label {
+    padding: 0 15px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &:hover {
+      color: #000;
+      opacity: 0.7;
+    }
+  }
+}

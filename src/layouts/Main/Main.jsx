@@ -30,6 +30,7 @@ export const Main = () => {
 
   return (
     <>
+
       <Container>
         <Slider />
         <h2 className={s.popular__title}>Новое и популярное</h2>
@@ -42,6 +43,7 @@ export const Main = () => {
           />
         ))}
       </Container>
+
     </>
   );
 };
