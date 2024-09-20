@@ -10,6 +10,7 @@ export const Main = () => {
   const [mainSections, setMainSection] = useState([]);
   //СЕКЦИЯ С ПОПУЛЯРНЫМИ ПРОДУКТАМИ
   const [popularSection, setPopularSection] = useState([]);
+
   //ПОДГРУЖАЕМ С СЕРВЕРА МАССИВ СО ВСЕМИ ПРОДУКТАМИ
   useEffect(() => {
     fetch("http://localhost:5000/products")
@@ -28,9 +29,9 @@ export const Main = () => {
   //МАССИВ - ДЛЯ ПЕРЕДАЧИ ЗАГОЛОВКА В СЕКЦИЮ
   const productsTitle = ["Пицца", "Комбо", "Закуски", "Десерты", "Напитки"];
 
+
   return (
     <>
-
       <Container>
         <Slider />
         <h2 className={s.popular__title}>Новое и популярное</h2>
@@ -43,7 +44,6 @@ export const Main = () => {
           />
         ))}
       </Container>
-
     </>
   );
 };

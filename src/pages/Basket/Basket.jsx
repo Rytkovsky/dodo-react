@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { BasketFooter } from "../../layouts/BasketFooter/BasketFooter";
-import { BasketHeader } from "../../layouts/BasketHeader/BasketHeader";
 import { BasketSection } from "../../layouts/BasketSection/BasketSection";
 import s from "./Basket.module.scss";
+import { BasketLayout } from "../../layouts/BasketLayout/BasketLayout";
 
 export const Basket = () => {
   const [popularSection, setPopularSection] = useState([]);
@@ -14,9 +13,9 @@ export const Basket = () => {
 
   return (
     <>
-      <BasketHeader />
-      <BasketSection popularSection={popularSection} />
-      <BasketFooter />
+      <BasketLayout>
+        <BasketSection popularSection={popularSection} />
+      </BasketLayout>
     </>
   );
 };

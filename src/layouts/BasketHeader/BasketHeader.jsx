@@ -5,6 +5,7 @@ import s from "./BasketHeader.module.scss";
 import activeEllipse from "../../assets/svg/active-ellipse.svg";
 import disabledEllipse from "../../assets/svg/disabled-ellipse.svg";
 import dottedLine from "../../assets/svg/Dotted-line.svg";
+import { Link } from "react-router-dom";
 
 export const BasketHeader = () => {
   return (
@@ -13,9 +14,13 @@ export const BasketHeader = () => {
         <Container>
           <div className={s.basketHeader__wrapper}>
             <div className={s.basketHeader__logo_wrapper}>
-              <Logo className={s.basketHeader__logo} />
+              <Link to={"/"}>
+                <Logo className={s.basketHeader__logo} />
+              </Link>
               <div className={s.basketHeader__title_wrapper}>
-                <LogoTitle className={s.basketHeader__title} />
+                <Link to={"/"}>
+                  <LogoTitle className={s.basketHeader__title} />
+                </Link>
                 <p className={s.basketHeader__subtitle}>
                   Сеть пиццерий №1 в России
                 </p>

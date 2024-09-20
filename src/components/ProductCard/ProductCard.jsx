@@ -3,7 +3,7 @@ import PizzaCheeseCheddar from "../../../public/images/cheesy-cheeder.webp";
 import { Button } from "../../ui/Button/Button";
 import { SizeRadioButton } from "../../ui/SizeRadioButton/SizeRadioButton";
 import { TypeRadioButton } from "../../ui/TypeRadioButton/TypeRadioButton";
-import CloseBtn from "../../assets/svg/close.svg"
+import CloseBtn from "../../assets/svg/close.svg";
 import { Ingredient } from "../../ui/Ingredient/Ingredient";
 
 export const ProductCard = () => {
@@ -11,9 +11,9 @@ export const ProductCard = () => {
     <div className={s.product__background}>
       <article className={s.product__card}>
         <div className={s.product__card_wrapper}>
-      <button className={s.product__close}>
-        <img src={CloseBtn}/>
-      </button>
+          <button className={s.product__close}>
+            <img src={CloseBtn} />
+          </button>
           <div className={s.product__wrapper_img}>
             <div className={s.product__dashed}></div>
             <img
@@ -42,7 +42,7 @@ export const ProductCard = () => {
               <Ingredient />
             </div>
             <div className={s.product__order}>
-              <Button className={s.product__button}>
+              <Button color="orange" size="large">
                 Добавить в корзину за 625 ₽
               </Button>
             </div>
