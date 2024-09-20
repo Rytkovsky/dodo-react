@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { NewAndPopular } from "../NewAndPopular/NewAndPopular";
 import { Slider } from "../Slider";
 import { Container } from "../Container/Container";
+import { ProductCard } from "../../components/ProductCard/ProductCard";
+ProductCard
 export const Main = () => {
   //ВСЕ ПРОДУКТЫ
   const [mainSections, setMainSection] = useState([]);
@@ -44,6 +46,7 @@ export const Main = () => {
           />
         ))}
       </Container>
+
     </>
   );
 };
