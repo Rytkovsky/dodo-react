@@ -5,6 +5,7 @@ import { Logo } from "../../components/Logo/Logo";
 import { LogoTitle } from "../../components/LogoTitle/LogoTitle";
 import { PhoneNumber } from "../../ui/PhoneNumber/PhoneNumber";
 import { Navigation } from "../../components/Navigation/Navigation";
+import { Link } from "react-router-dom";
 // import { MobileNavigation } from "../../components/MobileNavigation/MobileNavigation";
 
 export const Header = () => {
@@ -26,9 +27,11 @@ export const Header = () => {
         <div className={s.header__navigation}>
           <Navigation />
           {/* <MobileNavigation /> */}
-          <Button color="orange" size="medium">
-            Корзина
-          </Button>
+          <Link to={"/basket"}>
+            <Button color="orange" size="medium">
+              Корзина
+            </Button>
+          </Link>
         </div>
       </Container>
     </header>

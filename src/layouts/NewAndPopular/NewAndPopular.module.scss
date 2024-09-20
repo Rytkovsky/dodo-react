@@ -8,5 +8,13 @@
   &__wrapper {
     display: flex;
     gap: 20px;
+    overflow: hidden;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
