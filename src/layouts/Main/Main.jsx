@@ -45,8 +45,6 @@ export const Main = () => {
           />
         ))}
       </Container>
-      <ProductCard/>
-
     </>
   );
 };
