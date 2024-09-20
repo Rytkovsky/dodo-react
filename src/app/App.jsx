@@ -4,13 +4,15 @@ import { Main } from "../layouts/Main/Main";
 import { Footer } from "../layouts/Footer/Footer";
 import { Basket } from "../pages/Basket/Basket";
 
+
 function App() {
   return (
     <>
-      <Header />
-      <Main />
-      <Footer />
+      {/* <Header />
       <Basket />
+      <Main />
+      <Footer /> */}
+
     </>
   );
 }

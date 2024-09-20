@@ -50,7 +50,7 @@ export const ProductCard = () => {
               ))}
             </div>
             <div className={s.product__order}>
-              <Button className={s.product__button}>
+              <Button color="orange" size="large">
                 Добавить в корзину за 625 ₽
               </Button>
             </div>
