@@ -6,6 +6,7 @@
     top: 0;
     z-index: 100;
     background-color: rgba(0, 0, 0, 0.8);
+    left: 0;
   }
 
   &__close {
@@ -28,9 +29,6 @@
   &__card_wrapper {
     display: flex;
     border-radius: 20px;
-    // -ms-overflow-style: none;
-    // scrollbar-width: none;
-    // overflow: scroll;
   }
 
   &__wrapper_img {
@@ -69,6 +67,10 @@
     scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: rgb(218, 212, 212) #f3f3f7;
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
   }
 
   &__description {
@@ -85,12 +87,9 @@
   }
 
   &__title {
-    &__title {
-      color: #000;
-      font-size: 16px;
-      font-weight: 600;
-      margin-top: 17px;
-    }
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
   }
 
   &__ing_wrapper {
@@ -98,5 +97,9 @@
     grid-template-columns: repeat(3, 1fr);
     row-gap: 10px;
     column-gap: 10px;
+  }
+
+  &__order {
+    margin: 0 auto;
   }
 }

@@ -6,17 +6,26 @@ import { TypeRadioButton } from "../../ui/TypeRadioButton/TypeRadioButton";
 import CloseBtn from "../../assets/svg/close.svg";
 import { Ingredient } from "../../ui/Ingredient/Ingredient";
 import { extraIngredients } from "../../../extraIngredients.js";
-export const ProductCard = () => {
-  console.log(extraIngredients);
+import { useContext, useEffect } from "react";
+import { modalContext } from "../../providers/ModalProvider/ModalProvider.jsx";
 
-  //- Массив для передачи ингредиентов
-  // const ExtraIngredients = ["img", "description", "price"];
+export const ProductCard = ({ onClose }) => {
+
+  const { setIsOpenModalNew } = useContext(modalContext);
+  console.log("test");
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
 
   return (
     <div className={s.product__background}>
-      <article className={s.product__card}>
+      <article onClick={(e) => e.stopPropagation()} className={s.product__card}>
         <div className={s.product__card_wrapper}>
-          <button className={s.product__close}>
+          <button onClick={() => onClose()} className={s.product__close}>
             <img src={CloseBtn} />
           </button>
           <div className={s.product__wrapper_img}>
