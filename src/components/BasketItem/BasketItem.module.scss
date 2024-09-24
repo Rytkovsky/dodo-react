@@ -33,4 +33,9 @@
     align-items: center;
     gap: 40px;
   }
+  &__removeItem:hover {
+    filter: invert(45%) sepia(75%) saturate(3006%) hue-rotate(2deg)
+      brightness(100%) contrast(99%);
+      transition: 0.2s;
+  }
 }

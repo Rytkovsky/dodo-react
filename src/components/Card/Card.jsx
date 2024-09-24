@@ -5,17 +5,9 @@ import { basketContext } from "../../providers/BasketProvider/BasketProvider";
 
 export const Card = ({ el, img, collect, category, id }) => {
   const { addToBasket, basketCheck } = useContext(basketContext);
-
-  // const checkProduct = basketCheck(id);
-  // console.log(checkProduct);
-
-  // function basketHandler() {
-  //   if (checkProduct) {
-  //     return;
-  //   } else {
-  //     addToBasket(el);
-  //   }
-  // }
+  //ПРОВЕРКУ НА НАЛИЧИЕ ТОВАРА В КОРЗИНЕ ПИХНУЛИ В ПЕРЕМЕННУЮ
+  const checkInBasket = basketCheck(el._id);
+  console.log(checkInBasket);
 
   return (
     <>
@@ -32,12 +24,14 @@ export const Card = ({ el, img, collect, category, id }) => {
               <Button color="orange">Собрать</Button>
             ) : category !== "pizza" && "combo" ? (
               <Button
-                onClick={() => addToBasket(el)}
+                onClick={() => addToBasket({...el, quantity: 1})}
                 color="semiOrange"
                 text="orangeText"
               >
-                {" "}
-                В корзину{" "}
+                {checkInBasket ? "В корзине!" : "В корзину"}
+                {/* функция */}
+                {/* счетчик */}
+                {/* символы на кнопках */}
               </Button>
             ) : (
               <Button color="semiOrange" text="orangeText">

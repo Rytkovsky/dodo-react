@@ -1,0 +1,61 @@
+.form {
+  padding: 70px 0;
+  &__title {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  &__personData {
+    font-size: 16px;
+    font-weight: 400;
+    width: 160px;
+  }
+  &__input {
+    width: 270px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #d1d3d9;
+    background: #fff;
+    padding: 9px 94px 9px 16px;
+    font-size: 16px;
+  }
+  &__inputBig {
+    width: 430px;
+    height: 100px;
+    border-radius: 5px;
+    border: 1px solid #d1d3d9;
+    background: #fff;
+    padding: 12px 106px 66px 16px;
+    font-size: 16px;
+  }
+  &__btns {
+    margin-top: 70px;
+    max-width: 610px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__totalProducts {
+    display: flex;
+    flex-direction: column;
+    border-radius: 11px;
+    background: #fff;
+    box-shadow: 0px 5px 55px 0px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    height: 500px;
+    width: 340px;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  &__totalAmount {
+    margin-top: 10px;
+  }
+}
