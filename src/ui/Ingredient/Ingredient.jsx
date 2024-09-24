@@ -1,12 +1,29 @@
+import { useState } from "react";
+import checkImg from "../../assets/svg/checking.svg";
 import s from "./Ingredient.module.scss";
-// import IngMushroom from "../../../public/images/mushroom.webp";
+
 export const Ingredient = ({ img, description, price }) => {
+  const [isSelected, setIsSelected] = useState(false);
+
+  function handleSelected() {
+    setIsSelected((prevState) => !prevState);
+    console.log(isSelected);
+  }
+
   return (
     <>
-      <button type="button">
-        <article className={s.ingredient__card}>
+      <button onClick={() => handleSelected()} type="button">
+        <article
+          className={`${s.ingredient__card} ${
+            isSelected ? s.ingredient__card_selected : ""
+          }`}
+        >
           <div className={s.ingredient__wrapper_img}>
-            <input className={s.ingredient__checkbox} type="checkbox" />
+          {/* true (isSelected) && <img(галочка) */}
+           { isSelected && <img
+              src={checkImg} 
+              className={s.ingredient__check}
+            />}
             <img src={img} alt="img" className={s.ingredient__img} />
           </div>
           <div className={s.ingredient__text_block}>
