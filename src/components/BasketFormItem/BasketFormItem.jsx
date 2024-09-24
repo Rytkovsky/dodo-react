@@ -8,12 +8,11 @@ export const BasketFormItem = ({ el }) => {
   return (
     <>
       <li className={s.form}>
-  
         <p className={s.form__product}>
           {el.name}
           <span className={s.form__product_price}>
             {" "}
-            {el.price} ₽  шт = {basketPrice} ₽
+            {el.price}  шт = {basketPrice} ₽
           </span>
         </p>{" "}
         <p className={s.form__amount}> шт </p>
