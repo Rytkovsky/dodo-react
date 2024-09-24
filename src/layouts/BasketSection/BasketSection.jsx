@@ -7,11 +7,9 @@ import { NewAndPopular } from "../NewAndPopular/NewAndPopular";
 import s from "./BasketSection.module.scss";
 import { useContext } from "react";
 import { basketContext } from "../../providers/BasketProvider/BasketProvider";
-import { counterContext } from "../../providers/CounterProvider/CounterProvider";
 
 export const BasketSection = ({ popularSection }) => {
   const { basket, basketPrice } = useContext(basketContext);
-  const { count } = useContext(counterContext);
 
   return (
     <>
@@ -44,7 +42,7 @@ export const BasketSection = ({ popularSection }) => {
                 Сумма заказа:
                 <span className={s.basket__totalPrice}>
                   {" "}
-                  {basketPrice * count}₽
+                  {basketPrice}₽
                 </span>
               </h3>
             </div>

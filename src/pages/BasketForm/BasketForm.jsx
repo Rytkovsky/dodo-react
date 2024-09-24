@@ -7,11 +7,10 @@ import { useContext } from "react";
 import { basketContext } from "../../providers/BasketProvider/BasketProvider";
 import { BasketList } from "../../components/BasketList/BasketList";
 import { BasketFormItem } from "../../components/BasketFormItem/BasketFormItem";
-import { counterContext } from "../../providers/CounterProvider/CounterProvider";
 
 export const BasketForm = () => {
   const { basket, basketPrice } = useContext(basketContext);
-  const { count } = useContext(counterContext);
+
   return (
     <>
       <BasketLayout>
@@ -42,19 +41,18 @@ export const BasketForm = () => {
 
                   <Link to={"/basketForm"}>
                     <Button color="orange" size="semiLarge">
-                      Оформить заказ на {basketPrice * count} Р {`>`}
+                      Оформить заказ на {basketPrice} Р {`>`}
                     </Button>
                   </Link>
                 </div>
               </form>
               <BasketList className={s.form__totalProducts}>
-              <p>Состав заказа</p>
-                {" "}
+                <p>Состав заказа</p>{" "}
                 {basket.map((el) => (
                   <BasketFormItem key={el._id} el={el} />
                 ))}
                 <p className={s.form__totalAmount}>
-                  Стоимость заказа: {basketPrice * count} ₽
+                  Стоимость заказа: {basketPrice} ₽
                 </p>
               </BasketList>
             </div>
