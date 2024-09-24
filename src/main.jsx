@@ -4,15 +4,18 @@ import "./app/styles/global.css";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router/routes";
 import { BasketProvider } from "./providers/BasketProvider/BasketProvider";
-import { BasketForm } from "./pages/BasketForm/BasketForm";
-import { CounterProvider } from "./providers/CounterProvider/CounterProvider";
+
+import { ModalProvider } from "./providers/ModalProvider/ModalProvider";
 
 createRoot(document.getElementById("root")).render(
-  <CounterProvider>
+  <ModalProvider>
+
     <BasketProvider>
       <RouterProvider router={router}>
         <App />
       </RouterProvider>
     </BasketProvider>
-  </CounterProvider>
+
+  </ModalProvider>
+
 );
