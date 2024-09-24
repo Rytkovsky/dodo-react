@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
 import s from "./Navigation.module.scss";
+import { Button } from "../../ui/Button/Button";
+import { Container } from "../../layouts/Container/Container";
 
 export const Navigation = () => {
   return (
@@ -24,6 +27,11 @@ export const Navigation = () => {
             <a href="#others">Другие товары</a>
           </li>
         </ul>
+        <Link to={"/basket"}>
+          <Button color="orange" size="medium">
+            Корзина
+          </Button>
+        </Link>
       </nav>
     </>
   );

@@ -7,41 +7,67 @@ import { NewAndPopular } from "../NewAndPopular/NewAndPopular";
 import s from "./BasketSection.module.scss";
 import { useContext } from "react";
 import { basketContext } from "../../providers/BasketProvider/BasketProvider";
+import { counterContext } from "../../providers/CounterProvider/CounterProvider";
 
 export const BasketSection = ({ popularSection }) => {
-  const { basket } = useContext(basketContext);
+  const { basket, basketPrice } = useContext(basketContext);
+  const { count } = useContext(counterContext);
 
   return (
     <>
       <section className={s.basket}>
         <ContainerBasket>
           <h2 className={s.basket__title}>Корзина</h2>
-          <BasketList>
-            {basket.map((el) => (
-              <BasketItem el={el} key={el._id} img={el.imageUrl} />
-            ))}
-          </BasketList>
-          <h3 className={s.basket__subTitle}>Добавить к заказу?</h3>
-          <NewAndPopular
-            className={s.basket__popular}
-            popularSection={popularSection}
-          />
-          <h3 className={s.basket__price}>
-            Сумма заказа:
-            <span className={s.basket__totalPrice}>
-              {" "}
-              {basket.reduce((acc, el) => acc + el.price, 0)}₽
-            </span>
-          </h3>
+
+          {basket.length != 0 ? (
+            <BasketList>
+              {basket.map((el) => (
+                <BasketItem el={el} key={el._id} img={el.imageUrl} />
+              ))}
+            </BasketList>
+          ) : (
+            <h2 className={s.basket__title}>
+              Тут пусто! Добавьте что-нибудь из меню.
+            </h2>
+          )}
+
+          {basket.length != 0 ? (
+            <div>
+              <h3 className={s.basket__subTitle}>Добавить к заказу?</h3>
+
+              <NewAndPopular
+                className={s.basket__popular}
+                popularSection={popularSection}
+              />
+
+              <h3 className={s.basket__price}>
+                Сумма заказа:
+                <span className={s.basket__totalPrice}>
+                  {" "}
+                  {basketPrice * count}₽
+                </span>
+              </h3>
+            </div>
+          ) : (
+            ""
+          )}
+
           <div className={s.basket__btns}>
             <Link to={"/"}>
               <Button color="gray" size="semiLarge" text="black">
                 {`<`} Вернуться в меню{" "}
               </Button>
             </Link>
-            <Button color="orange" size="semiLarge">
-              Оформить заказ {`>`}
-            </Button>
+
+            {basket.length != 0 ? (
+              <Link to={"/basketForm"}>
+                <Button color="orange" size="semiLarge">
+                  Оформить заказ {`>`}
+                </Button>
+              </Link>
+            ) : (
+              ""
+            )}
           </div>
         </ContainerBasket>
       </section>

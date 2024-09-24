@@ -1,9 +1,12 @@
 import s from "./BasketItem.module.scss";
 import deleteItem from "../../assets/svg/item-delete.svg";
 import { AddRemoveBtn } from "../../ui/AddRemoveBtn/AddRemoveBtn";
+import { useContext, useState, useEffect } from "react";
+import { basketContext } from "../../providers/BasketProvider/BasketProvider";
 
 export const BasketItem = ({ el, img }) => {
-  console.log(el);
+  const { removeFromBasket } = useContext(basketContext);
+
 
   return (
     <>
@@ -16,10 +19,10 @@ export const BasketItem = ({ el, img }) => {
           </div>
         </div>
         <div className={s.basketItem__control}>
-          <AddRemoveBtn />
+          <AddRemoveBtn el={el} />
           <p className={s.basketItem__price}>{el.price}</p>
-          <button className={s.basketItem__removeItem}>
-            <img src={deleteItem} />
+          <button onClick={() => removeFromBasket(el)}>
+            <img className={s.basketItem__removeItem} src={deleteItem} />
           </button>
         </div>
       </li>

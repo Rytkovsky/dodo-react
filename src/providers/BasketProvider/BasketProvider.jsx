@@ -11,21 +11,33 @@ export const BasketProvider = ({ children }) => {
     const basketProducts = basket.find((el) => el._id === product._id);
 
     if (!basketProducts) {
-      setBasket([...basket, product]);
+      const basketAdd = [...basket, product];
+      //ПРОВАЛИВАЕМСЯ ВНУТРЬ МАССИВА И КАЖДОМУ ЭЛЕМЕНТУ ДАЁМ КЛЮЧ
+      const quantity = basketAdd.map((el) => ({ ...el, quantity: 1 }));
+      setBasket(quantity);
     } else {
       return;
     }
   }
 
-  //ПРОВЕРКА НА ТО ЕСТЬ ЛИ ТОВАР В КОРЗИНЕ(МАССИВЕ)
-  // function basketCheck(id) {
-  //   return basket.find((el) => el.id === id);
-  // }
+  //ПРОВЕРКА НА НАЛИЧИЕ ТОВАРА В КОРЗИНЕ
+  function basketCheck(id) {
+    return basket.find((el) => el._id === id);
+  }
+
+  //УДАЛЕНИЕ ТОВАРА ИЗ КОРЗИНЫ
+  function removeFromBasket(product) {
+    setBasket(basket.filter((el) => el._id !== product._id));
+  }
+  //ПОДСЧЕТ СУММЫ ЗА ТОВАРЫ
+  const basketPrice = basket.reduce((acc, el) => acc + el.price, 0);
 
   const basketData = {
     basket,
+    basketPrice,
     addToBasket,
-    // basketCheck,
+    removeFromBasket,
+    basketCheck,
   };
   console.log(basket);
 

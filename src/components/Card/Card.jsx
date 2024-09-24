@@ -6,6 +6,7 @@ import { ProductCard } from "../ProductCard/ProductCard";
 
 export const Card = ({ el, img, collect, category, id }) => {
   const { addToBasket, basketCheck } = useContext(basketContext);
+
   const [isOpenModalNew, setIsOpenModalNew] = useState(false); // локальное состояние
 
   useEffect(() => {
@@ -22,6 +23,7 @@ export const Card = ({ el, img, collect, category, id }) => {
   const handleModalClose = () => {
     setIsOpenModalNew(false);
   };
+
 
   return (
     <>
@@ -40,11 +42,14 @@ export const Card = ({ el, img, collect, category, id }) => {
               </Button>
             ) : category !== "pizza" && category !== "combo" ? (
               <Button
-                onClick={() => addToBasket(el)}
+                onClick={() => addToBasket({...el, quantity: 1})}
                 color="semiOrange"
                 text="orangeText"
               >
+
+
                 В корзину
+
               </Button>
             ) : (
               <Button

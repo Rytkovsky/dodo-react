@@ -1,0 +1,19 @@
+.form {
+  &__product {
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    &_ {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+  &__amount {
+    color: #73798c;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+  }
+}

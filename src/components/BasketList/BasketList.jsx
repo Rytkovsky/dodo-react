@@ -1,9 +1,9 @@
 import s from "./BasketList.module.scss";
 
-export const BasketList = ({ children }) => {
+export const BasketList = ({ children, className }) => {
   return (
     <>
-      <ul>{children}</ul>
+      <ul className={className}>{children}</ul>
     </>
   );
 };

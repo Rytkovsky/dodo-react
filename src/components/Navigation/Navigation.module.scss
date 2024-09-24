@@ -1,5 +1,15 @@
 .navigation {
-    &__lists {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  max-width: 1060px;
+  margin: 0 auto 38px;
+  background: #fff;
+  height: 60px;
+
+  &__lists {
     display: flex;
     gap: 23px;
   }
