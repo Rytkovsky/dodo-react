@@ -1,11 +1,12 @@
 import { useState } from "react";
 import s from "./TypeRadioButton.module.scss";
 
-export const TypeRadioButton = () => {
+export const TypeRadioButton = ({setTypeTesto}) => {
   const [checked, setChecked] = useState("traditional");
 
   const handleTypeChange = (type) => {
     setChecked(type);
+    setTypeTesto(type)
     console.log(type);
   };
 

@@ -1,15 +1,23 @@
 import s from "./ProductCard.module.scss";
-import PizzaCheeseCheddar from "../../../public/images/cheesy-cheeder.webp";
 import { Button } from "../../ui/Button/Button";
 import { SizeRadioButton } from "../../ui/SizeRadioButton/SizeRadioButton";
 import { TypeRadioButton } from "../../ui/TypeRadioButton/TypeRadioButton";
 import CloseBtn from "../../assets/svg/close.svg";
 import { Ingredient } from "../../ui/Ingredient/Ingredient";
 import { extraIngredients } from "../../../extraIngredients.js";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { modalContext } from "../../providers/ModalProvider/ModalProvider.jsx";
 
-export const ProductCard = ({ onClose }) => {
+export const ProductCard = ({ onClose, el, img }) => {
+  const [size, setSize] = useState("middle");
+  const [typeTesto, setTypeTesto] = useState("traditional");
+  const [totalIngredientSum, setTotalIngredientSum] = useState(0);
+
+  //-  Создание функции для суммирования цены ингредиентов
+  function addIngredientPrice(price) {
+    setTotalIngredientSum((prevState) => prevState + price);
+    //- перезаписать состояние предыдущим состоянием + прайс далее через пропс передать эту в функцию в кард ингредиент
+  }
 
   const { setIsOpenModalNew } = useContext(modalContext);
   console.log("test");
@@ -30,37 +38,47 @@ export const ProductCard = ({ onClose }) => {
           </button>
           <div className={s.product__wrapper_img}>
             <div className={s.product__dashed}></div>
-            <img
-              src={PizzaCheeseCheddar}
-              alt="pizza cheese cheddar"
-              className={s.product__img}
-            />
+            <img src={img} alt="pizza img" className={s.product__img} />
           </div>
-          <div className={s.product__text_block}>
-            <h2 className={s.product__title}>Чиззи чеддер</h2>
-            <p className={s.product__description}>
-              30 см, традиционное тесто, 480 г
-            </p>
-            <p className={s.product__structure}>
-              Ветчина, сыр чеддер, сладкий перец, моцарелла, томатный
-              соус,чеснок, итальянские травы
-            </p>
-            <SizeRadioButton />
-            <TypeRadioButton />
-            <h2 className={s.product__title}>Добавить в пиццу</h2>
-            <div className={s.product__ing_wrapper}>
-              {extraIngredients.map((el) => (
-                <Ingredient
-                  key={el.id}
-                  img={el.img}
-                  description={el.description}
-                  price={el.price}
-                ></Ingredient>
-              ))}
+          <div className={s.product__ingDopDiv}>
+            <div className={s.product__text_block}>
+              <h2 className={s.product__title}>{el.name}</h2>
+              <p className={s.product__description}>
+                {size === "middle" ? 30 : size === "big" ? 35 : 25} см,{" "}
+                {typeTesto === "traditional"
+                  ? "традиционное тесто"
+                  : "тонкое тесто"}
+                , {size === "middle" ? 480 : size === "big" ? 640 : 310} г
+              </p>
+              <p className={s.product__structure}>{el.description}</p>
+
+              {el.category === "pizza" ? (
+                <>
+                  <SizeRadioButton setSize={setSize} />
+                  <TypeRadioButton setTypeTesto={setTypeTesto} />
+                  <h2 className={s.product__title}>Добавить в пиццу</h2>
+                  <div className={s.product__ing_wrapper}>
+                    {extraIngredients.map((el) => (
+                      <Ingredient
+                        key={el.id}
+                        img={el.img}
+                        description={el.description}
+                        price={el.price}
+                        addIngredientPrice={addIngredientPrice}
+                      />
+                    ))}
+                  </div>
+                </>
+              ) : (
+                ""
+              )}
             </div>
             <div className={s.product__order}>
               <Button color="orange" size="large">
-                Добавить в корзину за 625 ₽
+                Добавить в корзину за
+                {(size === "middle" ? el.price : size === "big" ? 925 : 320) +
+                  totalIngredientSum}{" "}
+                ₽
               </Button>
             </div>
           </div>
