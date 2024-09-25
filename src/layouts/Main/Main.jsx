@@ -30,7 +30,6 @@ export const Main = () => {
   //МАССИВ - ДЛЯ ПЕРЕДАЧИ ЗАГОЛОВКА В СЕКЦИЮ
   const productsTitle = ["Пицца", "Комбо", "Закуски", "Десерты", "Напитки"];
 
-
   return (
     <>
       <Container>
@@ -42,6 +41,7 @@ export const Main = () => {
             key={item}
             title={productsTitle[i]}
             productArray={mainSections.filter((el) => el.category === item)}
+            item={item}
           />
         ))}
       </Container>

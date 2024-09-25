@@ -5,6 +5,13 @@
     font-weight: 600;
     margin-bottom: 30px;
   }
+  &__list {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(218, 212, 212) #f3f3f7;
+  }
+
   &__subTitle {
     margin-top: 60px;
     font-size: 24px;

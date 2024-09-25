@@ -5,6 +5,7 @@ body {
   background: #fff;
   font-family: "Nunito", sans-serif;
   height: 100vh;
+  scroll-behavior: smooth;
 }
 
 * {

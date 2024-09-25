@@ -1,0 +1,87 @@
+.basketHeader {
+  &__order {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    &_num1 {
+      width: 9px;
+      font-size: 14px;
+      font-weight: 700;
+      position: absolute;
+      top: 7px;
+      left: 24px;
+    }
+    &_num2 {
+      position: absolute;
+      top: 7px;
+      left: 64px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #aeadae;
+    }
+    &_num22 {
+      position: absolute;
+      top: 7px;
+      left: 64px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    &_num3 {
+      position: absolute;
+      top: 7px;
+      left: 40px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #aeadae;
+    }
+    &_text1 {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    &_text2 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #aeadae;
+    }
+    &_text22 {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    &_text3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #aeadae;
+    }
+  }
+  &__ellipse_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__ellipse {
+    width: 32px;
+    height: 32px;
+    display: block;
+  }
+  &__dottedLine1 {
+    height: 1px;
+    position: absolute;
+    left: 50px;
+    top: 15px;
+    width: 114px;
+  }
+  &__dottedLine2 {
+    height: 1px;
+    position: absolute;
+    left: 90px;
+    top: 15px;
+  }
+}
+
+.basketHeader__orderMain {
+  display: flex;
+  width: 370px;
+  justify-content: space-between;
+}

@@ -3,11 +3,14 @@ import { Button } from "../../ui/Button/Button";
 import { useState, useContext, useEffect } from "react";
 import { basketContext } from "../../providers/BasketProvider/BasketProvider";
 import { ProductCard } from "../ProductCard/ProductCard";
+import { AddRemoveBtn } from "../../ui/AddRemoveBtn/AddRemoveBtn";
 
-export const Card = ({ el, img, collect, category, id }) => {
-  const { addToBasket, basketCheck } = useContext(basketContext);
+export const Card = ({ el, img, collect, category }) => {
+  const { basket, addToBasket, basketCheck, findQuantity } =
+    useContext(basketContext);
   const checkInBasket = basketCheck(el._id);
   const [isOpenModalNew, setIsOpenModalNew] = useState(false); // локальное состояние
+  // console.log(basket);
 
   useEffect(() => {
     window.addEventListener("click", () => {
@@ -41,11 +44,22 @@ export const Card = ({ el, img, collect, category, id }) => {
               </Button>
             ) : category !== "pizza" && category !== "combo" ? (
               <Button
-                onClick={() => addToBasket({ ...el, quantity: 1 })}
+                onClick={() => {
+                  addToBasket(el), basketCheck(el._id);
+                }}
                 color="semiOrange"
                 text="orangeText"
               >
-                {checkInBasket ? "В корзине!" : "В корзину"}
+                {checkInBasket
+                  ? // ЕСЛИ ТОВАР ЕСТЬ В КОРЗИНЕ, ТО :
+                    basket.map((el) => {
+                      // МЭП - ЕСЛИ, ТОВАР.ID===ТОВАР-В-КОРЗИНЕ.ID,
+                      if (el._id === checkInBasket._id) {
+                        // ТО, ДОБАВЬ МНЕ В КНОПКУ ЧИСЛО ПО КОЛИЧЕСТВУ ТОВАРА В КОРЗИНЕ
+                        return `Корзина: ${el.quantity}`;
+                      }
+                    })
+                  : "В корзину"}
               </Button>
             ) : (
               <Button

@@ -23,6 +23,7 @@
     font-weight: 600;
   }
   &__desc {
+    width: 230px;
     color: #73798c;
     font-family: Arial;
     font-size: 12px;
@@ -33,9 +34,12 @@
     align-items: center;
     gap: 40px;
   }
+  &__price {
+    width: 38px;
+  }
   &__removeItem:hover {
     filter: invert(45%) sepia(75%) saturate(3006%) hue-rotate(2deg)
       brightness(100%) contrast(99%);
-      transition: 0.2s;
+    transition: 0.2s;
   }
 }
