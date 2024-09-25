@@ -9,7 +9,8 @@ import { useContext } from "react";
 import { basketContext } from "../../providers/BasketProvider/BasketProvider";
 
 export const BasketSection = ({ popularSection }) => {
-  const { basket, basketPrice } = useContext(basketContext);
+  const { basket, totalSum, changeToFirstHeader, changeToSecondHeader } =
+    useContext(basketContext);
 
   return (
     <>
@@ -17,8 +18,8 @@ export const BasketSection = ({ popularSection }) => {
         <ContainerBasket>
           <h2 className={s.basket__title}>Корзина</h2>
 
-          {basket.length != 0 ? (
-            <BasketList>
+          {basket.length ? (
+            <BasketList className={s.basket__list}>
               {basket.map((el) => (
                 <BasketItem el={el} key={el._id} img={el.imageUrl} />
               ))}
@@ -29,7 +30,7 @@ export const BasketSection = ({ popularSection }) => {
             </h2>
           )}
 
-          {basket.length != 0 ? (
+          {basket.length ? (
             <div>
               <h3 className={s.basket__subTitle}>Добавить к заказу?</h3>
 
@@ -40,10 +41,7 @@ export const BasketSection = ({ popularSection }) => {
 
               <h3 className={s.basket__price}>
                 Сумма заказа:
-                <span className={s.basket__totalPrice}>
-                  {" "}
-                  {basketPrice}₽
-                </span>
+                <span className={s.basket__totalPrice}> {totalSum} ₽</span>
               </h3>
             </div>
           ) : (
@@ -59,7 +57,11 @@ export const BasketSection = ({ popularSection }) => {
 
             {basket.length != 0 ? (
               <Link to={"/basketForm"}>
-                <Button color="orange" size="semiLarge">
+                <Button
+                  onClick={changeToSecondHeader}
+                  color="orange"
+                  size="semiLarge"
+                >
                   Оформить заказ {`>`}
                 </Button>
               </Link>

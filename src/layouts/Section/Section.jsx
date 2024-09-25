@@ -2,10 +2,12 @@ import { Card } from "../../components/Card/Card";
 import { Container } from "../Container/Container";
 import s from "./Section.module.scss";
 
-export const Section = ({ title, productArray }) => {
+export const Section = ({ title, productArray, item }) => {
+
+
   return (
     <>
-      <section className={s.cards}>
+      <section id={item} className={s.cards}>
         <h2 className={s.cards__title}>{title}</h2>
         <div className={s.cards__wrapper}>
           {productArray.map((el) => (

@@ -7,7 +7,6 @@ import { basketContext } from "../../providers/BasketProvider/BasketProvider";
 export const BasketItem = ({ el, img }) => {
   const { removeFromBasket } = useContext(basketContext);
 
-
   return (
     <>
       <li className={s.basketItem}>
@@ -20,7 +19,7 @@ export const BasketItem = ({ el, img }) => {
         </div>
         <div className={s.basketItem__control}>
           <AddRemoveBtn el={el} />
-          <p className={s.basketItem__price}>{el.price}</p>
+          <p className={s.basketItem__price}>{el.price * el.quantity}</p>
           <button onClick={() => removeFromBasket(el)}>
             <img className={s.basketItem__removeItem} src={deleteItem} />
           </button>

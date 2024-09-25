@@ -9,7 +9,8 @@ import { BasketList } from "../../components/BasketList/BasketList";
 import { BasketFormItem } from "../../components/BasketFormItem/BasketFormItem";
 
 export const BasketForm = () => {
-  const { basket, basketPrice } = useContext(basketContext);
+  const { basket, changeToFirstHeader, changeToThirdHeader, totalSum } =
+    useContext(basketContext);
 
   return (
     <>
@@ -34,14 +35,19 @@ export const BasketForm = () => {
 
                 <div className={s.form__btns}>
                   <Link to={"/basket"}>
-                    <Button color="gray" size="semiLarge" text="black">
+                    <Button
+                      onClick={changeToFirstHeader}
+                      color="gray"
+                      size="semiLarge"
+                      text="black"
+                    >
                       {`<`} Вернуться в корзину{" "}
                     </Button>
                   </Link>
 
-                  <Link to={"/basketForm"}>
-                    <Button color="orange" size="semiLarge">
-                      Оформить заказ на {basketPrice} Р {`>`}
+                  <Link to={"/basketFinal"}>
+                    <Button onClick={changeToThirdHeader} color="orange" size="semiLarge">
+                      Оформить заказ на {totalSum} ₽ {`>`}
                     </Button>
                   </Link>
                 </div>
@@ -52,7 +58,7 @@ export const BasketForm = () => {
                   <BasketFormItem key={el._id} el={el} />
                 ))}
                 <p className={s.form__totalAmount}>
-                  Стоимость заказа: {basketPrice} ₽
+                  Стоимость заказа: {totalSum} ₽
                 </p>
               </BasketList>
             </div>
