@@ -2,6 +2,10 @@ import clsx from "clsx";
 import s from "./Button.module.scss";
 
 export const Button = ({ children, onClick, color, size, text }) => {
+
+
+
+
   return (
     <>
       <button

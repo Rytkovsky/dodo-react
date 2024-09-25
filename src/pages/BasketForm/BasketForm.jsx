@@ -9,8 +9,10 @@ import { BasketList } from "../../components/BasketList/BasketList";
 import { BasketFormItem } from "../../components/BasketFormItem/BasketFormItem";
 
 export const BasketForm = () => {
+
   const { basket, changeToFirstHeader, changeToThirdHeader, totalSum } =
     useContext(basketContext);
+
 
   return (
     <>

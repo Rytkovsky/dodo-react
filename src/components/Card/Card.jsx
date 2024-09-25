@@ -29,8 +29,8 @@ export const Card = ({ el, img, collect, category }) => {
 
   return (
     <>
-      <article className={s.card}>
-        <img src={img} alt="card chicken blue cheese" className={s.card__img} />
+      <article onClick={handleModalOpen} className={s.card}>
+        <img src={img} alt="img card" className={s.card__img} />
         <div className={s.card__wrapper}>
           <div className={s.card__textBlock}>
             <h3 className={s.card__title}>{el.name}</h3>
@@ -73,7 +73,13 @@ export const Card = ({ el, img, collect, category }) => {
           </div>
         </div>
       </article>
-      {isOpenModalNew && <ProductCard onClose={handleModalClose} />}
+      {isOpenModalNew && category === "pizza" && (
+        <ProductCard
+          el={el}
+          img={el.imageUrl}
+          onClose={handleModalClose}
+        ></ProductCard>
+      )}
     </>
   );
 };
