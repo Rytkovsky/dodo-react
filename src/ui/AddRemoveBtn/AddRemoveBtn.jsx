@@ -1,23 +1,20 @@
 import s from "./AddRemoveBtn.module.scss";
 import minus from "../../assets/svg/minus.svg";
 import plus from "../../assets/svg/plus.svg";
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { basketContext } from "../../providers/BasketProvider/BasketProvider";
 
 export const AddRemoveBtn = ({ el }) => {
-  const [count, setCount] = useState(el.quantity);
-  el.quantity = count;
-
+  
+  const { addAmount, decreaseAmount } = useContext(basketContext);
   return (
     <>
       <div className={s.btn}>
-        <button
-          onClick={() => setCount(el.quantity === 1 ? count : count - 1)}
-          className={s.minus}
-        >
+        <button onClick={() => decreaseAmount(el)} className={s.minus}>
           <img src={minus} />
         </button>
         <span>{el.quantity}</span>
-        <button onClick={() => setCount(el.quantity + 1)} className={s.plus}>
+        <button onClick={() => addAmount(el)}>
           <img src={plus} />
         </button>
       </div>

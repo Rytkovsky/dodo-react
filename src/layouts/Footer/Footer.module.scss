@@ -90,9 +90,9 @@
     &_img {
       filter: invert(94%) sepia(6%) saturate(99%) hue-rotate(187deg)
         brightness(87%) contrast(88%);
-
     }
     &_text {
+      margin-top: 7px;
       display: flex;
       gap: 14px;
       opacity: 0.7;

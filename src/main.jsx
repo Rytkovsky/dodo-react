@@ -6,16 +6,14 @@ import { router } from "./router/routes";
 import { BasketProvider } from "./providers/BasketProvider/BasketProvider";
 
 import { ModalProvider } from "./providers/ModalProvider/ModalProvider";
+import { BasketFinal } from "./pages/BasketFinal/BasketFinal";
 
 createRoot(document.getElementById("root")).render(
   <ModalProvider>
-
     <BasketProvider>
       <RouterProvider router={router}>
         <App />
       </RouterProvider>
     </BasketProvider>
-
   </ModalProvider>
-
 );
