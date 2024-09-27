@@ -36,13 +36,24 @@ export const BasketProvider = ({ children }) => {
   }
 
   //ДОБАВЛЕНИЕ ТОВАРА В КОРЗИНУ(МАССИВ)
-  function addToBasket(product) {
+  function addToBasket(product, ingredient) {
     const basketProducts = basket.find((el) => el._id === product._id);
 
     if (!basketProducts) {
-      const basketAdd = [...basket, product];
+      const ingredientCheck =
+        product.category === "pizza"
+          ? {
+              ...product,
+              extraValues: ingredient.map((el) => ({
+                price: el.price,
+                description: el.description,
+              })),
+            }
+          : product;
+      const basketAdd = [...basket, ingredientCheck];
 
-      //ПРОВАЛИВАЕМСЯ ВНУТРЬ МАССИВА И КАЖДОМУ ЭЛЕМЕНТУ ДАЁМ КЛЮЧ КОЛИЧЕСТВА
+      setBasket(basketAdd);
+      // ПРОВАЛИВАЕМСЯ ВНУТРЬ МАССИВА И КАЖДОМУ ЭЛЕМЕНТУ ДАЁМ КЛЮЧ КОЛИЧЕСТВА
       const addQuantity = basketAdd.map((el) =>
         el._id === product._id ? { ...el, quantity: 1 } : el
       );
@@ -50,16 +61,6 @@ export const BasketProvider = ({ children }) => {
     } else if (basketProducts) {
       addAmount(product);
     }
-  }
-
-  // ДОБАВЛЕНИЕ НОВЫХ КЛЮЧЕЙ ДЛЯ ДОП. ИНГРИДИЕНТОВ
-  function addKeys(description) {
-    const newBasket = basket.map((el) => ({
-      ...el,
-      ingredients: [...el.ingredients, description],
-    }));
-
-    setBasket(newBasket);
   }
 
   //ДОБАВЛЕНИЕ ЦЕНЫ ПРИ ДОП. ИНГРИДИЕНТАХ
@@ -108,9 +109,17 @@ export const BasketProvider = ({ children }) => {
 
   //ДОБАВЛЕНИЕ ДОП ИНГРИДИЕНТОВ В МАССИВ
   //СОХРАНЯЕМ ПРЕДЫДУЩЕЕ СОСТОЯНИЕ И ДОБАВЛЯЕМ НОВЫЙ ЭЛЕМЕНТ
-  function addIngredients(description) {
-    setIngredient((prevState) => [...prevState, description]);
+  function addIngredients(price, description) {
+    setIngredient((prevState) => [
+      ...prevState,
+      { price: price, description: description },
+    ]);
   }
+
+  // function checkIngredients () {
+  //   const ingredietCheck = basket.map((el) => el === )
+  // }
+
   //УДАЛЕНИЕ ИНГРИДИЕНТОВ ИЗ МАССИВА
   function removeIngredients(description) {
     const filteredIngredient = ingredient.filter(
@@ -137,11 +146,9 @@ export const BasketProvider = ({ children }) => {
     addIngredients,
     removeIngredients,
     ingredient,
-    addKeys,
-    addPrice
+    addPrice,
   };
-  console.log(ingredient);
-  console.log(basket);
+
 
   return (
     <>
