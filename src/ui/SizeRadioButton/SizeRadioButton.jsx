@@ -1,14 +1,13 @@
 import { useState } from "react";
 import s from "./SizeRadioButton.module.scss";
 
-export const SizeRadioButton = ({setSize}) => {
+export const SizeRadioButton = ({ setSize }) => {
   const [checked, setChecked] = useState("middle");
 
-const handleSizeChange = (size) => {
-  setChecked(size)
-  setSize(size)
-  console.log(size);
-}
+  const handleSizeChange = (size) => {
+    setChecked(size);
+    setSize(size);
+  };
 
   return (
     <div className={s.size__nav}>

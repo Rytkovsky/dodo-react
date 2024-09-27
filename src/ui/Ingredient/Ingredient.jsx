@@ -1,29 +1,44 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import checkImg from "../../assets/svg/checking.svg";
 import s from "./Ingredient.module.scss";
+import { basketContext } from "../../providers/BasketProvider/BasketProvider";
 
-export const Ingredient = ({ img, description, price, addIngredientPrice }) => {
+export const Ingredient = ({
+  img,
+  description,
+  price,
+  addIngredientPrice,
+  addIngredients,
+  removeIngredients,
+}) => {
+  //СОСТОЯНИЕ ДЛЯ ВЫБРАННОГО ДОПОЛНИТЕЛЬНОГО ИНГРИДИЕНТА
   const [isSelected, setIsSelected] = useState(false);
-
+  const { addKeys, addPrice } = useContext(basketContext);
+  //ПРИ НАЖАТИИ НА ИНГРИДИЕНТ ОН БУДЕТ МЕНЯТЬСЯ С ТРУ НА ФОЛС
   function handleSelected() {
     setIsSelected((prevState) => !prevState);
-    console.log(isSelected);
   }
-
-  function handleСhoiceIngredient(price) {
+  // ЕСЛИ ИНГРИДИЕНТ ВЫБРАН - К ИТОГОВОЙ СУММЕ ДОБАВЛЯЕТСЯ ЕГО СТОИМОСТЬ НА КНОПКУ
+  function handleСhoiceIngredient(price, description) {
     handleSelected();
     if (!isSelected) {
       addIngredientPrice(price);
+      addPrice(price);
+      addIngredients({ description: description, price: price });
     } else {
       addIngredientPrice(-price);
+      removeIngredients(description);
     }
   }
-  //- создать новую функцию принимает параметр прайс, вызывает функцию хэндл селектед,  в условии (if isSelected тогда вызывается функция addIngredientsPrice c параметром (price) иначе вызывается функция addIngredientPrice c параметром -price) 
 
   return (
     <>
-      {/* //-убрать handleSelected добавить новую функцию  */}
-      <button onClick={() => handleСhoiceIngredient(price)} type="button">
+      <button
+        onClick={() => {
+          handleСhoiceIngredient(price, description), addKeys(description);
+        }}
+        type="button"
+      >
         <article
           className={`${s.ingredient__card} ${
             isSelected ? s.ingredient__card_selected : ""
@@ -39,7 +54,7 @@ export const Ingredient = ({ img, description, price, addIngredientPrice }) => {
             <h3 className={s.ingredient__name}>{description}</h3>
           </div>
           <div>
-            <p className={s.ingredient__price}>{price}</p>
+            <p className={s.ingredient__price}>{price} ₽</p>
           </div>
         </article>
       </button>

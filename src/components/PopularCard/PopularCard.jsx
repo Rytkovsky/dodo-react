@@ -1,9 +1,9 @@
 import s from "./PopularCard.module.scss";
 
-export const PopularCard = ({ el, img }) => {
+export const PopularCard = ({ el, img, onClick }) => {
   return (
     <>
-      <article className={s.popular}>
+      <article onClick={onClick} className={s.popular}>
         <button>
           <img className={s.popular__img} src={img}></img>
         </button>

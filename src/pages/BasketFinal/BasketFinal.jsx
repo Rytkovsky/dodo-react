@@ -7,7 +7,19 @@ import { useContext } from "react";
 import { basketContext } from "../../providers/BasketProvider/BasketProvider";
 
 export const BasketFinal = () => {
-  const { changeToEmptyHeader } = useContext(basketContext);
+  const { changeToEmptyHeader, clearAllBasket } = useContext(basketContext);
+  const addresses = [
+    "Москва, Химки, д. 10",
+    "Москва, Домашняя ул., д. 10",
+    "Москва, Загородный пр-кт., д. 10",
+    "Москва, Любимая ул., д. 10",
+    "Москва, Задорожная ул., д. 10",
+    "Москва, Энгельса ул., д. 10",
+    "Москва, Ультрамариновый пр-кт.,  д. 10",
+    "Москва, Казахская ул., д. 10",
+    "Москва, Мировой пр-кт., д. 10",
+  ];
+  const randomAddress = Math.round(Math.random() * addresses.length);
 
   return (
     <>
@@ -21,13 +33,13 @@ export const BasketFinal = () => {
               <h2>Приняли</h2>
               <h2> ~ {Math.round(Math.random() * 60)} мин </h2>
             </div>
-            <p className={s.basketfinal__address}>
-              Доставим по адресу: Москва, ул. 1-я Машиностроения, д. 10
-            </p>
+            <p className={s.basketfinal__address}>{addresses[randomAddress]}</p>
             <div className={s.basketfinal__btns}>
               <Link to={"/canceledOrder"}>
                 <Button
-                  onClick={changeToEmptyHeader}
+                  onClick={() => {
+                    changeToEmptyHeader(), clearAllBasket();
+                  }}
                   color="gray"
                   size="semiLarge"
                   text="black"
@@ -37,7 +49,11 @@ export const BasketFinal = () => {
               </Link>
 
               <Link to={"/"}>
-                <Button color="orange" size="semiLarge">
+                <Button
+                  onClick={clearAllBasket}
+                  color="orange"
+                  size="semiLarge"
+                >
                   Вернуться в меню
                 </Button>
               </Link>
