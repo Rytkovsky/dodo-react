@@ -1,10 +1,9 @@
 import { Card } from "../../components/Card/Card";
+import { Button } from "../../ui/Button/Button";
 import { Container } from "../Container/Container";
 import s from "./Section.module.scss";
 
-export const Section = ({ productArray, item, title}) => {
-
-
+export const Section = ({ productArray, item, title }) => {
   return (
     <>
       <section id={item} className={s.cards}>

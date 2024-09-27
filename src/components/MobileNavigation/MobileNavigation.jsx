@@ -12,16 +12,16 @@ export const MobileNavigation = () => {
             <a href="#combo">Комбо</a>
           </li>
           <li className={s.navigation__item}>
-            <a href="#snacks">Закуски</a>
+            <a href="#snack">Закуски</a>
           </li>
           <li className={s.navigation__item}>
-            <a href="#desserts">Десерты</a>
+            <a href="#dessert">Десерты</a>
           </li>
           <li className={s.navigation__item}>
-            <a href="#drinks">Напитки</a>
+            <a href="#drink">Напитки</a>
           </li>
           <li className={s.navigation__item}>
-            <a href="#others">Другие товары</a>
+            <a href="#other">Другие товары</a>
           </li>
         </ul>
       </nav>
