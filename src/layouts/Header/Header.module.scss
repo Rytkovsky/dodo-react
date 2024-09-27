@@ -1,5 +1,5 @@
 .header {
-  padding: 25px 110px;
+  padding: 25px 0;
   background-color: white;
 
   &__wrapper {
@@ -30,5 +30,10 @@
     }
   }
 
+}
 
+@media screen and (max-width: 651px) {
+  .header{
+    padding: 12px 0 25px;
+  }
 }

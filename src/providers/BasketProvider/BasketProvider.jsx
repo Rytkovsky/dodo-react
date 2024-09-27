@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-// import { extraIngredients } from "../../../extraIngredients";
 export const basketContext = createContext(null);
 
 export const BasketProvider = ({ children }) => {

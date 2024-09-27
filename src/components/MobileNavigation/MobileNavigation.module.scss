@@ -1,7 +1,7 @@
 .navigation {
   &__lists {
     display: flex;
-    gap: 8px;
+    justify-content: space-between;
   }
 
   &__item {
@@ -23,4 +23,20 @@
       background: #fff0e6;
     }
   }
+}
+
+@media screen and (max-width: 600px) {
+  .navigation {
+    overflow: hidden;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(218, 212, 212) #f3f3f7;
+    margin-bottom: 20px;
+
+  &__lists {
+    display: flex;
+    gap: 8px;
+  }
+
+}
 }

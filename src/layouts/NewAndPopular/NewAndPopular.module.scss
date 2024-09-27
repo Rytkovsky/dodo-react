@@ -5,6 +5,7 @@
     font-size: 24px;
     font-weight: 700;
   }
+
   &__wrapper {
     display: flex;
     gap: 20px;
@@ -13,5 +14,11 @@
     scrollbar-width: thin;
     scrollbar-color: rgb(218, 212, 212) #f3f3f7;
     padding-bottom: 10px;
+  }
+
+  @media screen and (max-width: 651px) {
+    &__wrapper {
+      margin-bottom: 20px;
+    }
   }
 }

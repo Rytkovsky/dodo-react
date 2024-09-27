@@ -3,11 +3,15 @@ import { Button } from "../../ui/Button/Button";
 import { useState, useContext, useEffect } from "react";
 import { basketContext } from "../../providers/BasketProvider/BasketProvider";
 import { ProductCard } from "../ProductCard/ProductCard";
+import { AddRemoveBtn } from "../../ui/AddRemoveBtn/AddRemoveBtn";
+import { WindowWidthContext } from "../../providers/WindowWidthContext/WindowWidthContext";
 import { Portal } from "../Portal/Portal";
-import { Ingredient } from "../../ui/Ingredient/Ingredient";
 
 export const Card = ({ el, img, collect, category }) => {
-  const { basket, addToBasket, basketCheck } = useContext(basketContext);
+  const width = useContext(WindowWidthContext);
+
+  const { basket, addToBasket, basketCheck, findQuantity } =
+    useContext(basketContext);
   const checkInBasket = basketCheck(el._id);
   const [isOpenModalNew, setIsOpenModalNew] = useState(false); // локальное состояние
 
@@ -44,7 +48,7 @@ export const Card = ({ el, img, collect, category }) => {
             <p className={s.card__price}>от {el.price} ₽</p>
             {collect && category === "pizza" ? (
               <Button onClick={handleModalOpen} color="orange">
-                Собрать
+                {width > 550 ? "Собрать" : `от ${el.price} р`}
               </Button>
             ) : category !== "pizza" && category !== "combo" ? (
               <Button
@@ -63,7 +67,9 @@ export const Card = ({ el, img, collect, category }) => {
                         return `Корзина: ${el.quantity}`;
                       }
                     })
-                  : "В корзину"}
+                  : width > 550
+                  ? "В корзину"
+                  : `${el.price} р`}
               </Button>
             ) : (
               <Button
@@ -71,7 +77,7 @@ export const Card = ({ el, img, collect, category }) => {
                 color="semiOrange"
                 text="orangeText"
               >
-                Выбрать
+                {width > 550 ? "Выбрать" : `от ${el.price} р`}
               </Button>
             )}
           </div>

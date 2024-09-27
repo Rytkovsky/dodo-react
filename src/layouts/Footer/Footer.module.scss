@@ -1,21 +1,25 @@
 .footer {
-  padding: 50px 110px 40px;
+  padding: 50px 0;
   margin-top: 65px;
   background: #464c55;
 
   &__top_wrapper {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
+
   &__main_info {
     display: flex;
     justify-content: space-between;
     max-width: 706px;
     gap: 24px;
   }
+
   &__list {
     max-width: 140px;
   }
+
   &__item {
     color: #fff;
     font-size: 18px;
@@ -23,11 +27,13 @@
     opacity: 0.7;
     margin-top: 10px;
   }
+
   &__item:first-of-type {
     font-weight: 600;
     opacity: 1;
     margin-top: 0;
   }
+
   &__contacts {
     text-align: right;
   }
@@ -37,6 +43,7 @@
     height: 40px;
     padding-right: 5px;
   }
+
   &__tel {
     margin: 29px 0 6px 0;
     color: #fff;
@@ -44,40 +51,47 @@
     font-weight: 600;
     line-height: 26px;
   }
+
   &__mail {
     margin-top: 26px;
     color: #fff;
     font-size: 15px;
     font-weight: 400;
   }
+
   &__income_info {
     display: flex;
     margin-top: 93px;
     margin-bottom: 40px;
     gap: 156px;
   }
+
   &__income_detailsLeft {
     max-width: 299px;
     color: #fff;
     line-height: 22px;
   }
+
   &__income_detailsRight {
     max-width: 241px;
     color: #fff;
     line-height: 22px;
   }
+
   &__income_title {
     font-size: 26px;
     font-weight: 600;
     line-height: 26px;
     margin-bottom: 12px;
   }
+
   &__bottom {
     padding-top: 46px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
+
     &_logo {
       display: flex;
       gap: 28px;
@@ -87,10 +101,12 @@
       font-weight: 400;
       margin-top: 10px;
     }
+
     &_img {
       filter: invert(94%) sepia(6%) saturate(99%) hue-rotate(187deg)
         brightness(87%) contrast(88%);
     }
+
     &_text {
       margin-top: 7px;
       display: flex;
@@ -102,9 +118,84 @@
       line-height: 22px;
       align-items: center;
     }
+
     &_links {
       display: flex;
       gap: 12px;
     }
   }
+
+  @media screen and (max-width: 625px) {
+    &__main_info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      max-width: 706px;
+      gap: 24px;
+    }
+
+    &__app_btn {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__bottom_text {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .footer {
+    &__income_info {
+      display: none;
+    }
+
+    &__main_info {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__mail {
+      margin-top: 0;
+    }
+
+    &__contacts {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__bottom_links {
+      display: flex;
+      gap: 12px;
+    }
+
+    &__bottom_text {
+      margin-top: 30px;
+      display: flex;
+      gap: 14px;
+      opacity: 0.7;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 22px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__bottom_logo {
+      display: flex;
+      gap: 28px;
+      opacity: 0.7;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 400;
+      margin-top: 20px;
+      justify-content: center;
+    }
+  }
+  
 }
