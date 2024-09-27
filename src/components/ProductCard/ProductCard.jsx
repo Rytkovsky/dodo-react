@@ -75,7 +75,7 @@ export const ProductCard = ({ onClose, el, img }) => {
             </div>
             <div className={s.product__order}>
               <Button color="orange" size="large">
-                Добавить в корзину за
+                Добавить в корзину за{" "}
                 {(size === "middle" ? el.price : size === "big" ? 925 : 320) +
                   totalIngredientSum}{" "}
                 ₽

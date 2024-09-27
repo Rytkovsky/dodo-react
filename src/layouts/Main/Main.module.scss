@@ -1,3 +1,9 @@
-.popular__title{
+.popular__title {
   margin-bottom: 70px;
+}
+
+@media screen and (max-width: 650px) {
+  .popular__title {
+    margin-bottom: 10px;
+  }
 }

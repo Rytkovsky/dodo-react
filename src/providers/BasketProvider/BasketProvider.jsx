@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import s from "./BasketProvider.module.scss";
 
 export const basketContext = createContext(null);
 

@@ -5,6 +5,7 @@
   position: sticky;
   top: -1px;
   max-width: 1060px;
+  padding: 0 15px;
   margin: 0 auto 38px;
   background: #fff;
   height: 60px;
@@ -23,5 +24,11 @@
     &:hover {
       color: #f96900;
     }
+  }
+}
+
+@media screen and (max-width: 651px) {
+  .navigation {
+    display: none;
   }
 }

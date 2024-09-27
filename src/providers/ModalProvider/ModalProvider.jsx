@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import s from "./ModalProvider.module.scss";
 
 export const modalContext = createContext(null);
 
