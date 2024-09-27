@@ -7,7 +7,7 @@ export const TypeRadioButton = ({setTypeTesto}) => {
   const handleTypeChange = (type) => {
     setChecked(type);
     setTypeTesto(type)
-    console.log(type);
+
   };
 
   return (

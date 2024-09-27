@@ -9,7 +9,7 @@ import { useContext } from "react";
 import { basketContext } from "../../providers/BasketProvider/BasketProvider";
 
 export const BasketSection = ({ popularSection }) => {
-  const { basket, totalSum, changeToFirstHeader, changeToSecondHeader } =
+  const { basket, totalSum, changeToSecondHeader, ingredient } =
     useContext(basketContext);
 
   return (
@@ -21,7 +21,12 @@ export const BasketSection = ({ popularSection }) => {
           {basket.length ? (
             <BasketList className={s.basket__list}>
               {basket.map((el) => (
-                <BasketItem el={el} key={el._id} img={el.imageUrl} />
+                <BasketItem
+ 
+                  el={el}
+                  key={el._id}
+                  img={el.imageUrl}
+                />
               ))}
             </BasketList>
           ) : (

@@ -3,14 +3,13 @@ import { Button } from "../../ui/Button/Button";
 import { useState, useContext, useEffect } from "react";
 import { basketContext } from "../../providers/BasketProvider/BasketProvider";
 import { ProductCard } from "../ProductCard/ProductCard";
-import { AddRemoveBtn } from "../../ui/AddRemoveBtn/AddRemoveBtn";
+import { Portal } from "../Portal/Portal";
+import { Ingredient } from "../../ui/Ingredient/Ingredient";
 
 export const Card = ({ el, img, collect, category }) => {
-  const { basket, addToBasket, basketCheck, findQuantity } =
-    useContext(basketContext);
+  const { basket, addToBasket, basketCheck } = useContext(basketContext);
   const checkInBasket = basketCheck(el._id);
   const [isOpenModalNew, setIsOpenModalNew] = useState(false); // локальное состояние
-  // console.log(basket);
 
   useEffect(() => {
     window.addEventListener("click", () => {
@@ -29,8 +28,13 @@ export const Card = ({ el, img, collect, category }) => {
 
   return (
     <>
-      <article onClick={handleModalOpen} className={s.card}>
-        <img src={img} alt="img card" className={s.card__img} />
+      <article className={s.card}>
+        <img
+          onClick={handleModalOpen}
+          src={img}
+          alt="img card"
+          className={s.card__img}
+        />
         <div className={s.card__wrapper}>
           <div className={s.card__textBlock}>
             <h3 className={s.card__title}>{el.name}</h3>
@@ -38,7 +42,7 @@ export const Card = ({ el, img, collect, category }) => {
           </div>
           <div className={s.card__order}>
             <p className={s.card__price}>от {el.price} ₽</p>
-            {collect ? (
+            {collect && category === "pizza" ? (
               <Button onClick={handleModalOpen} color="orange">
                 Собрать
               </Button>
@@ -73,12 +77,15 @@ export const Card = ({ el, img, collect, category }) => {
           </div>
         </div>
       </article>
-      {isOpenModalNew && category === "pizza" && (
-        <ProductCard
-          el={el}
-          img={el.imageUrl}
-          onClose={handleModalClose}
-        ></ProductCard>
+
+      {isOpenModalNew && (
+        <Portal>
+          <ProductCard
+            el={el}
+            img={el.imageUrl}
+            onClose={handleModalClose}
+          ></ProductCard>
+        </Portal>
       )}
     </>
   );

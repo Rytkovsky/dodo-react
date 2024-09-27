@@ -3,8 +3,6 @@ import { Container } from "../Container/Container";
 import s from "./Section.module.scss";
 
 export const Section = ({ title, productArray, item }) => {
-
-
   return (
     <>
       <section id={item} className={s.cards}>
@@ -19,6 +17,7 @@ export const Section = ({ title, productArray, item }) => {
               collect={el.collect}
               category={el.category}
               title={title}
+              ingredients={el.ingredients}
             ></Card>
           ))}
         </div>

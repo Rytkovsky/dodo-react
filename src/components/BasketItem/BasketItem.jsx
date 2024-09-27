@@ -5,7 +5,8 @@ import { useContext, useState, useEffect } from "react";
 import { basketContext } from "../../providers/BasketProvider/BasketProvider";
 
 export const BasketItem = ({ el, img }) => {
-  const { removeFromBasket } = useContext(basketContext);
+  const { removeFromBasket, ingredient } = useContext(basketContext);
+  const ingredients = el.ingredients.join(", ");
 
   return (
     <>
@@ -14,7 +15,9 @@ export const BasketItem = ({ el, img }) => {
           <img src={img} className={s.basketItem__img}></img>
           <div className={s.basketItem__text}>
             <h3 className={s.basketItem__title}>{el.name}</h3>
-            <p className={s.basketItem__desc}>{el.description}</p>
+            <p className={s.basketItem__desc}>{ingredients}</p>
+            <p>{ingredient.price}</p>
+            <p>{ingredient.description}</p>
           </div>
         </div>
         <div className={s.basketItem__control}>
