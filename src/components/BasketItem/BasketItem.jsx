@@ -6,7 +6,6 @@ import { basketContext } from "../../providers/BasketProvider/BasketProvider";
 
 export const BasketItem = ({ el, img }) => {
   const { removeFromBasket, ingredient } = useContext(basketContext);
-  const ingredients = el.ingredients.join(", ");
 
   return (
     <>
@@ -15,8 +14,17 @@ export const BasketItem = ({ el, img }) => {
           <img src={img} className={s.basketItem__img}></img>
           <div className={s.basketItem__text}>
             <h3 className={s.basketItem__title}>{el.name}</h3>
-            <p className={s.basketItem__desc}>{ingredients}</p>
-            <p>{ingredient.price}</p>
+
+            <p className={s.basketItem__desc}>
+              {el.category === "pizza"
+                ? "Средняя 30 см, традиционное тесто"
+                : "1 шт"}
+            </p>
+
+            {/* <p>
+              {" "}
+              + {el.extraValues.map((item) => item.description).join(", ")}
+            </p> */}
             <p>{ingredient.description}</p>
           </div>
         </div>

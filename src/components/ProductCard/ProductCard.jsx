@@ -19,7 +19,7 @@ export const ProductCard = ({ onClose, el, img }) => {
     basket,
     addIngredients,
     removeIngredients,
-    addKeys,
+    ingredient,
   } = useContext(basketContext);
   const checkInBasket = basketCheck(el._id);
 
@@ -90,7 +90,7 @@ export const ProductCard = ({ onClose, el, img }) => {
             </div>
             <div className={s.product__order}>
               <Button
-                onClick={() => addToBasket(el)}
+                onClick={() => addToBasket(el, ingredient)}
                 color="orange"
                 size="large"
               >

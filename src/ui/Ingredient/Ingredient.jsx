@@ -10,10 +10,11 @@ export const Ingredient = ({
   addIngredientPrice,
   addIngredients,
   removeIngredients,
+  el,
 }) => {
   //СОСТОЯНИЕ ДЛЯ ВЫБРАННОГО ДОПОЛНИТЕЛЬНОГО ИНГРИДИЕНТА
   const [isSelected, setIsSelected] = useState(false);
-  const { addKeys, addPrice } = useContext(basketContext);
+  const { addPrice } = useContext(basketContext);
   //ПРИ НАЖАТИИ НА ИНГРИДИЕНТ ОН БУДЕТ МЕНЯТЬСЯ С ТРУ НА ФОЛС
   function handleSelected() {
     setIsSelected((prevState) => !prevState);
@@ -24,7 +25,7 @@ export const Ingredient = ({
     if (!isSelected) {
       addIngredientPrice(price);
       addPrice(price);
-      addIngredients({ description: description, price: price });
+      addIngredients(price, description);
     } else {
       addIngredientPrice(-price);
       removeIngredients(description);
@@ -35,7 +36,7 @@ export const Ingredient = ({
     <>
       <button
         onClick={() => {
-          handleСhoiceIngredient(price, description), addKeys(description);
+          handleСhoiceIngredient(price, description);
         }}
         type="button"
       >
