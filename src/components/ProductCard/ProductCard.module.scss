@@ -34,14 +34,7 @@
     position: relative;
   }
 
-  &__dashed {
-    width: 458px;
-    height: 458px;
-    border: 1px dashed #a7a7a7;
-    border-radius: 50%;
-    position: relative;
-    z-index: 2;
-  }
+
 
   &__img {
     position: absolute;
@@ -65,12 +58,11 @@
     border-radius: 20px;
     overflow: hidden;
     overflow-y: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: thin;
-    scrollbar-color: rgb(218, 212, 212) #f3f3f7;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow: scroll;
     &::-webkit-scrollbar {
-      width: 0;
-      height: 0;
+      display: none;
     }
   }
 
@@ -100,6 +92,7 @@
     grid-template-columns: repeat(3, 1fr);
     row-gap: 10px;
     column-gap: 10px;
+    margin-bottom: 40px;
   }
 
   &__order {
@@ -107,7 +100,8 @@
     background: #fff;
     border-radius: 25px;
     position: absolute;
-    left: 8%;
     bottom: 0;
+    left: 8%;
+   
   }
 }

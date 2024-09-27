@@ -5,6 +5,7 @@ import { basketContext } from "../../providers/BasketProvider/BasketProvider";
 import { ProductCard } from "../ProductCard/ProductCard";
 import { AddRemoveBtn } from "../../ui/AddRemoveBtn/AddRemoveBtn";
 import { WindowWidthContext } from "../../providers/WindowWidthContext/WindowWidthContext";
+import { Portal } from "../Portal/Portal";
 
 export const Card = ({ el, img, collect, category }) => {
   const width = useContext(WindowWidthContext);
@@ -31,8 +32,13 @@ export const Card = ({ el, img, collect, category }) => {
 
   return (
     <>
-      <article onClick={handleModalOpen} className={s.card}>
-        <img src={img} alt="img card" className={s.card__img} />
+      <article className={s.card}>
+        <img
+          onClick={handleModalOpen}
+          src={img}
+          alt="img card"
+          className={s.card__img}
+        />
         <div className={s.card__wrapper}>
           <div className={s.card__textBlock}>
             <h3 className={s.card__title}>{el.name}</h3>
@@ -40,7 +46,7 @@ export const Card = ({ el, img, collect, category }) => {
           </div>
           <div className={s.card__order}>
             <p className={s.card__price}>от {el.price} ₽</p>
-            {collect ? (
+            {collect && category === "pizza" ? (
               <Button onClick={handleModalOpen} color="orange">
                 {width > 550 ? "Собрать" : `от ${el.price} р`}
               </Button>
@@ -77,12 +83,15 @@ export const Card = ({ el, img, collect, category }) => {
           </div>
         </div>
       </article>
-      {isOpenModalNew && category === "pizza" && (
-        <ProductCard
-          el={el}
-          img={el.imageUrl}
-          onClose={handleModalClose}
-        ></ProductCard>
+
+      {isOpenModalNew && (
+        <Portal>
+          <ProductCard
+            el={el}
+            img={el.imageUrl}
+            onClose={handleModalClose}
+          ></ProductCard>
+        </Portal>
       )}
     </>
   );
